@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "5b446983-2a2f-483e-baf7-a53d8266bc04",
+		"name": "Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hand Worth Values",
+			"item": [
+				{
+					"name": "Calculate Hand Copy - Ace High",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"13555778\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":2,\"s\":\"D\"},{\"n\":8,\"s\":\"S\"},{\"n\":4,\"s\":\"S\"},{\"n\":13,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Pair",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"21947169\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":14,\"s\":\"D\"},{\"n\":1,\"s\":\"S\"},{\"n\":2,\"s\":\"S\"},{\"n\":3,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Pair (Lower)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"21945803\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":13,\"s\":\"S\"},{\"n\":13,\"s\":\"D\"},{\"n\":12,\"s\":\"S\"},{\"n\":11,\"s\":\"S\"},{\"n\":14,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - 2 Pair",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"26144136\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":14,\"s\":\"D\"},{\"n\":8,\"s\":\"S\"},{\"n\":8,\"s\":\"C\"},{\"n\":13,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - 3 of a kind",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"30338772\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":14,\"s\":\"D\"},{\"n\":14,\"s\":\"H\"},{\"n\":4,\"s\":\"S\"},{\"n\":13,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Straight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"32431290\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":13,\"s\":\"D\"},{\"n\":12,\"s\":\"H\"},{\"n\":11,\"s\":\"S\"},{\"n\":10,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Flush",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"33340020\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":4,\"s\":\"S\"},{\"n\":7,\"s\":\"S\"},{\"n\":12,\"s\":\"S\"},{\"n\":11,\"s\":\"S\"},{\"n\":10,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Full House (3 and 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"34532915\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":14,\"s\":\"D\"},{\"n\":14,\"s\":\"H\"},{\"n\":3,\"s\":\"C\"},{\"n\":3,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - 4 of a kind",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"38727405\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":14,\"s\":\"D\"},{\"n\":14,\"s\":\"H\"},{\"n\":14,\"s\":\"C\"},{\"n\":13,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Hand Copy - Straight Flush",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"52354234\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":13,\"s\":\"S\"},{\"n\":12,\"s\":\"S\"},{\"n\":11,\"s\":\"S\"},{\"n\":10,\"s\":\"S\"}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/hand/worth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hand",
+								"worth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "View Deck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/deck",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Draw Hand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/deck/draw/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck",
+						"draw",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Hand",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"n\":14,\"s\":\"S\"},{\"n\":2,\"s\":\"D\"},{\"n\":8,\"s\":\"S\"},{\"n\":4,\"s\":\"S\"},{\"n\":13,\"s\":\"S\"}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/hand/worth",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hand",
+						"worth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
