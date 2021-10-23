@@ -1,0 +1,17 @@
+{
+  "name": "poker",
+  "version": "1.0.0",
+  "description": "API Server for poker game",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
+  "author": "Sean Stacey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}

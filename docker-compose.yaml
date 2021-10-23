@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  html:
+    build:
+      context: html
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/var/www
+    working_dir: /var/www
+    networks:
+      - app-network
+    container_name: devops_html
+    links:
+      - api
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    networks:
+      - app-network
+    container_name: devops_api
+    environment:
+      - "ENVIRONMENT=dev"
+
+networks:
+  app-network:
+    driver: bridge
