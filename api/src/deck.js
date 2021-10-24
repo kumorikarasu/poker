@@ -75,6 +75,7 @@ router
   // Note: Draw functions will not work if there are no cards left, it will not give an error, it will just return nothing
   .get('/draw/:amount', (req, res) => {
     deck = req.app.locals.deck
+    if (req.params.amount > deck.cards().length) { res.sendStatus(418); return }
     res.send(deck.cards().splice(0, req.params.amount));
   })
 

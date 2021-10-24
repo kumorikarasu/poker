@@ -7,8 +7,25 @@ function Card (s, n) {
 }
 
 Suits = ['S', 'D', 'C', 'H']
+
+function CardValueToText(value) {
+  value = value & 0xf
+  if (value > 10){
+    switch(value){
+    case 11:
+        return "Jack"
+    case 12:
+        return "Queen"
+    case 13:
+        return "King"
+    case 14:
+        return "Ace"
+    }
+  }
+  return "" + value
+}
   
 
-module.exports = { Card, Suits }
+module.exports = { Card, Suits, CardValueToText }
 // ]]]
 

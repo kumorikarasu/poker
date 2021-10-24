@@ -37,18 +37,17 @@ function ShuffleDeck () {
 }
 
 function GetHandValue(handNumber, cb) {
-  console.log(hand[handNumber]);
-
   var apiUrl = '/api/hand/worth';
   fetch(apiUrl, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(hand[handNumber])
   }).then(response => {
+    console.log(response)
     return response.json();
   }).then(data => {
+    console.log(data)
     hand[handNumber].worth = data
-    console.log(hand)
     cb(data)
   }).catch(err => {
   });
@@ -60,6 +59,9 @@ function Hand(handNumber) {
     return response.json();
   }).then(data => {
     hand[handNumber] = data
+    GetHandValue(handNumber, (hand) => {
+      $("#" + handNumber + "msg").html(hand.msg);
+    })
     for(var i = 0; i < 5; i++){
       $("#" + handNumber + i).attr('src', "img/" + hand[handNumber][i].n + hand[handNumber][i].s + ".png");
     }
@@ -75,18 +77,23 @@ function ShowWinner() {
     return 0;
   }
 
-  GetHandValue("tc", (top) => {
-    GetHandValue("bc", (bottom) => {
-      $("#winnerdbg").html(top + " VS " + bottom);
-      if (top > bottom) {
-        $("#winner").html("Top Wins!");
-      } else {
-        $("#winner").html("Bottom Wins!");
-      }
+  var apiUrl = '/api/hand/comp';
+  fetch(apiUrl, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify([hand["tc"], hand["bc"]])
+  }).then(response => {
+    return response.json();
+  }).then(data => {
+    if (data[0].handNumber == 0)
+        $("#winner").html("Top Wins! \nwith " + data[0].msg);
+    else
+        $("#winner").html("Bottom Wins! \nwith " + data[0].msg);
+    $("#winnerdbg").html(data);
+  }).catch(err => {
+  });
 
-    })
-  })
-
+  return 0;
 }
 
 GetDeck()
