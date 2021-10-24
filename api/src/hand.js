@@ -48,9 +48,6 @@ function compHands(hands){
   calcHands.forEach((x, i) => x.handNumber = i);
   calcHands.sort((b,a) => { return a.outer - b.outer || a.inner - b.inner });
 
-  console.log(calcHands)
-
-
   return calcHands
 }
 
@@ -69,19 +66,16 @@ function calcOuterValue(cards) {
   
   // fold the array to calc a flush, if a single suit doesn't match, the resulting string will 
   // be greater then 1. We use the first bit as a flush flag
-  console.log(outerval)
   outerval |= cards.reduce((a, n) => {
     return n.s === a ? n.s : n.s + a
   }, "").length == 1
   
   // If flush flag is set, add 18
-  console.log(outerval)
   outerval += (outerval & 1) * 18
 
   // calculate straight. Includes edge case of Ace High/Low. Add 18 if straight
   outerval += cards[0].n - cards[4].n == 4 ? 18 
     : (cards[0].n == 14 && cards[1].n == 5) ? 18 : 0
-  console.log(outerval)
  
   return outerval
 }
@@ -99,7 +93,6 @@ function calcInnerValue(cards) {
 
   // grouby to find pairs, get the first 2 sets only
   cardGroups = groupBy(cards, "n").sort((a, b) => b.length - a.length || b[0].n - a[0].n );
-  console.log(cardGroups)
   cardGroups = cardGroups.splice(0, 2); 
 
   inner |= cardGroups.reduce((total, next) => {
@@ -120,7 +113,6 @@ function calcInnerValue(cards) {
 function HandToStr(calcHand) {
   var out = calcHand.outer
   var innerGroup = calcHand.inner >> 20 //Bitshift to groups
-  console.log(calcHand)
 
   switch(out) {
     case 12:

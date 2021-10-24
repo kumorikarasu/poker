@@ -4,7 +4,7 @@ var deck = []
 var hand = {}
 
 function NewDeck () {
-  var apiUrl = '/api/deck/new';
+  var apiUrl = 'api/deck/new';
   fetch(apiUrl).then(response => {
     return response.json();
   }).then(data => {
@@ -15,7 +15,7 @@ function NewDeck () {
 }
 
 function GetDeck() {
-  var apiUrl = '/api/deck';
+  var apiUrl = 'api/deck';
   fetch(apiUrl).then(response => {
     return response.json();
   }).then(data => {
@@ -26,7 +26,7 @@ function GetDeck() {
 }
 
 function ShuffleDeck () {
-  var apiUrl = '/api/deck/shuffle';
+  var apiUrl = 'api/deck/shuffle';
   fetch(apiUrl).then(response => {
     return response.json();
   }).then(data => {
@@ -37,16 +37,14 @@ function ShuffleDeck () {
 }
 
 function GetHandValue(handNumber, cb) {
-  var apiUrl = '/api/hand/worth';
+  var apiUrl = 'api/hand/worth';
   fetch(apiUrl, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(hand[handNumber])
   }).then(response => {
-    console.log(response)
     return response.json();
   }).then(data => {
-    console.log(data)
     hand[handNumber].worth = data
     cb(data)
   }).catch(err => {
@@ -54,7 +52,7 @@ function GetHandValue(handNumber, cb) {
 }
 
 function Hand(handNumber) {
-  var apiUrl = '/api/deck/draw/5';
+  var apiUrl = 'api/deck/draw/5';
   fetch(apiUrl).then(response => {
     return response.json();
   }).then(data => {
@@ -65,7 +63,6 @@ function Hand(handNumber) {
     for(var i = 0; i < 5; i++){
       $("#" + handNumber + i).attr('src', "img/" + hand[handNumber][i].n + hand[handNumber][i].s + ".png");
     }
-    console.log(hand)
     GetDeck()
   }).catch(err => {
   });
@@ -77,7 +74,7 @@ function ShowWinner() {
     return 0;
   }
 
-  var apiUrl = '/api/hand/comp';
+  var apiUrl = 'api/hand/comp';
   fetch(apiUrl, {
       method: "post",
       headers: { "Content-Type": "application/json" },
