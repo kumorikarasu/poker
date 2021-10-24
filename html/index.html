@@ -15,92 +15,63 @@
 
   </head>
   <body>
-
-    <div class="container-fluid">
+    <div class="container" style="">
       <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-1">
-              <div class="btn-group btn-group-vertical" role="group">
-                 
-                <button class="btn btn-secondary" type="button" onclick="NewDeck()">
-                  New Deck
-                </button> 
-                <button class="btn btn-secondary" type="button">
-                  Shuffle Deck
-                </button> 
-                <button class="btn btn-secondary" type="button">
-                  Top Hand
-                </button> 
-                <button class="btn btn-secondary" type="button">
-                  Display Winner
-                </button>
-                <button class="btn btn-secondary" type="button">
-                  Bottom hand
-                </button>
-              </div>
-            </div>
-            <div class="col-md-11">
-              <div class="row">
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
-                  <h2>
-                    Heading
-                  </h2>
-                  <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                  </p>
-                  <p>
-                    <a class="btn" href="#">View details »</a>
-                  </p>
-                </div>
-                <div class="col-md-4">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                  <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
-                </div>
-                <div class="col-md-2">
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col text-center">
+          <div class="btn-group" role="group" aria-label="Basic example" style="">
+            <button class="btn btn-secondary" type="button" onclick="NewDeck()"> New Deck </button> 
+            <button class="btn btn-secondary" type="button" onclick="ShuffleDeck()"> Shuffle Deck </button> 
+            <button class="btn btn-secondary" type="button" onclick="Hand('tc')"> New Top Hand </button> 
+            <button class="btn btn-secondary" type="button" onclick="Hand('bc')"> New Bottom Hand </button>
+          </div>		  		  		  
         </div>
       </div>
+      <hr class="my-4">		  		  		
+      <div class="row">
+        <div class="col text-center">
+          <img id="tc0" src="img/black_joker.png" height="175" width="125" style="">
+          <img id="tc1" src="img/black_joker.png" height="175" width="125" style="">
+          <img id="tc2" src="img/black_joker.png" height="175" width="125" style="">
+          <img id="tc3" src="img/black_joker.png" height="175" width="125" style="">
+          <img id="tc4" src="img/black_joker.png" height="175" width="125" style="">
+        </div>
+      </div>
+      <hr style="">
+
+      <div class="row">
+        <div class="col text-center">
+          <img id="bc0" src="img/red_joker.png" height="175" width="125" style="">
+          <img id="bc1" src="img/red_joker.png" height="175" width="125" style="">
+          <img id="bc2" src="img/red_joker.png" height="175" width="125" style="">
+          <img id="bc3" src="img/red_joker.png" height="175" width="125" style="">
+          <img id="bc4" src="img/red_joker.png" height="175" width="125" style="">
+        </div>
+      </div>
+      <hr class="my-4">		  		  		
     </div>
+    <div class="row">
+      <div class="col text-center">
+        <button onclick="ShowWinner()" type="button" class="btn btn-primary" style="text-center">Show Winning Hand</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <p id="winnerdbg"> </p>
+        <p id="winner"> </p>
+      </div>
+    </div>
+    <hr class="my-4">		  		  		
+    <div class="row">
+      <div class="col text-center">
+        <h2>
+          Deck Info
+        </h2>
+        <p>
+        Cards Remaining in Deck: <p id="cards"> 52 </p>
+        </p>
+      </div>
+    </div>
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -1,4 +1,4 @@
-
+// Simple groupby function used to collect pairs/sets
 var groupBy = function(xs, key) {
   return xs.reduce(function(rv, x) {
     (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -61,7 +61,6 @@ function calcInnerValue(cards) {
   cards.sort((a,b) => b.n - a.n);
   
   var inner = cards.reduce((total, next) => {
-    console.log(next)
     // 14 = 4 bits. we bitshift to ensure each set of 4 is larger then the previous
     return ((total << 4) + next.n)
   }, 0);
