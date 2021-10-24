@@ -7,34 +7,34 @@ function Deck() {
   let deck = {
     order: () => {
       cards = [];
-			Cards.Suits.forEach(x => {
-				var start = 1, end = 13, a = 0
-				if (x === 'C' || x === 'H'){
-					start = -13, end = -1
-				}
+      Cards.Suits.forEach(x => {
+        var start = 1, end = 13, a = 0
+        if (x === 'C' || x === 'H'){
+          start = -13, end = -1
+        }
 
-				for(var i=start; i <= end; i++){
-					Math.abs(i) === 1 ? a = 13 : a = 0 // Aces we want first in a new deck, but last in value
-					cards.push(Cards.Card(x, Math.abs(i)+a))
-				}
-			})
+        for(var i=start; i <= end; i++){
+          Math.abs(i) === 1 ? a = 13 : a = 0 // Aces we want first in a new deck, but last in value
+          cards.push(Cards.Card(x, Math.abs(i)+a))
+        }
+      })
 
       return deck
-		},
+    },
 
     shuffle: () => {
-			for (let i = cards.length - 1; i > 0; i--) {
-					// Note: Insecure random, not hack proof
-					const j = Math.floor(Math.random() * (i + 1)); 
-					[cards[i], cards[j]] = [cards[j], cards[i]];
-			}
+      for (let i = cards.length - 1; i > 0; i--) {
+        // Note: Insecure random, not hack proof
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
 
       return deck
-		},
-    
+    },
+
     //get
     cards: () => { return cards}
-	}
+  }
   return deck
 }
 // ]]]

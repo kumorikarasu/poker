@@ -10,7 +10,7 @@ function calcHand(cards) {
   
   if (cards.length != 5) return 0; //5 cards are required to give a hand any worth
 
-	// bitshift abunch to ensure out value has much higher value, and its easy to revert back
+  // bitshift abunch to ensure out value has much higher value, and its easy to revert back
   value = (calcOuterValue(cards) << 20) // each card takes 4 bits, 5 cards means we shift 20 times
   value += calcInnerValue(cards)
 
@@ -20,7 +20,7 @@ function calcHand(cards) {
 // calcOuterValue
 
 // High Card : 12
-// Pair 		 : 20
+// Pair      : 20
 // 2 Pair    : 24
 // 3 Set     : 28
 // Straight  : 30
@@ -29,7 +29,7 @@ function calcHand(cards) {
 // 4 Set     : 36
 // Straight F: 41
 function calcOuterValue(cards) {
-	// Sort descending
+  // Sort descending
   cards.sort((a,b) => b.n - a.n) 
 
   // grouby to find pairs, and sort by longest array
@@ -49,7 +49,7 @@ function calcOuterValue(cards) {
 
   // calculate straight. Includes edge case of Ace High/Low. Add 18 if straight
   outerval += cards[0].n - cards[4].n == 4 ? 18 
-		: (cards[0].n == 14 && cards[1].n == 5) ? 18 : 0
+    : (cards[0].n == 14 && cards[1].n == 5) ? 18 : 0
  
   return outerval
 }
@@ -57,16 +57,16 @@ function calcOuterValue(cards) {
 // The Inner value only takes actual card values into account, by making the outer value
 // a very large number, the inner value would only matter in tie breaker situations
 function calcInnerValue(cards) {
-	// Sort descending
+  // Sort descending
   cards.sort((a,b) => b.n - a.n);
   
   var inner = cards.reduce((total, next) => {
     console.log(next)
     // 14 = 4 bits. we bitshift to ensure each set of 4 is larger then the previous
     return ((total << 4) + next.n)
-	}, 0);
+  }, 0);
 
-	return inner;
+  return inner;
 }
 
 // [[[ Controller
