@@ -13,7 +13,7 @@ services:
     working_dir: /var/www
     networks:
       - app-network
-    container_name: devops_html
+    container_name: poker_html
     links:
       - api
 
@@ -29,7 +29,7 @@ services:
     working_dir: /usr/src/app
     networks:
       - app-network
-    container_name: devops_api
+    container_name: poker_api
     environment:
       - "ENVIRONMENT=dev"
 
